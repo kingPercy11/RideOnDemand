@@ -121,7 +121,7 @@ const DriverHome = ()=>{
     return(
         <div className="h-screen">
             <div className="fixed p-6 top-0 w-screen flex items-center justify-between">
-                <img className="w-16" src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png" alt=""/>
+                <img className='w-25 mb-1' src="/Logo.png" alt="" />
                 <Link to='/driver/logout' className="h-10 w-10 flex justify-center items-center bg-white rounded-2xl"><i className=" text-2xl font-bold ri-logout-box-line"></i></Link>
                 {/*bg-amber-400*/}
             </div>

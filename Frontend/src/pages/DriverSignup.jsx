@@ -56,7 +56,7 @@ const DriverSignup = () => {
         <div> 
             <div className='px-5 py-5 h-screen flex flex-col justify-between'>
                 <div>
-                    <img className='w-16 mb-8' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYQy-OIkA6In0fTvVwZADPmFFibjmszu2A0g&s" alt="" />
+                    <img className='w-25 mb-1' src="/Logo.png" alt="" />
                     <form onSubmit={(e) => {
                         submitHandler(e)
                     }}>

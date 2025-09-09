@@ -33,7 +33,7 @@ const DriverLogin = () => {
     return (
         <div className="p-7 h-screen flex flex-col justify-between">
             <div>
-                <img className='w-20 mb-2' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYQy-OIkA6In0fTvVwZADPmFFibjmszu2A0g&s" alt="" />
+                <img className='w-25 mb-1' src="/Logo.png" alt="" />
                 <form onSubmit={(e) => submitHandler(e)}>
                     <h3 className="text-lg font-medium mb-2">What's your email</h3>
                     <input

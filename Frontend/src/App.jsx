@@ -15,8 +15,6 @@ import Riding from "./pages/Riding"
 import DriverRiding from "./pages/DriverRiding"
 import 'remixicon/fonts/remixicon.css'
 
-// import { UserDataContext } from "./context/UserContext"
-
 const App = () => {
   return (
     <div>
