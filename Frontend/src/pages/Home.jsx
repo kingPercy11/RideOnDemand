@@ -224,7 +224,7 @@ const Home = () => {
 
     return(
         <div className="h-screen relative overflow-hidden">
-            <img className='w-25 mb-1' src="/Logo.png" alt="" />
+            <img className='w-25 absolute left-5 top-5' src="/Logo.png" alt="" />
             <div className="h-[70%] w-screen z-20">
                 {/* temp use image */}
                 {/* <img className="h-full w-full object-cover" src="https://miro.medium.com/v2/resize:fit:1400/0*gwMx05pqII5hbfmX.gif" alt="" /> */}

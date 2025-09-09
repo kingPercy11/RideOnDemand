@@ -121,7 +121,7 @@ const DriverHome = ()=>{
     return(
         <div className="h-screen">
             <div className="fixed p-6 top-0 w-screen flex items-center justify-between">
-                <img className='w-25 mb-1' src="/Logo.png" alt="" />
+                <img className='w-25 absolute left-5 top-5' src="/Logo.png" alt="" />
                 <Link to='/driver/logout' className="h-10 w-10 flex justify-center items-center bg-white rounded-2xl"><i className=" text-2xl font-bold ri-logout-box-line"></i></Link>
                 {/*bg-amber-400*/}
             </div>
