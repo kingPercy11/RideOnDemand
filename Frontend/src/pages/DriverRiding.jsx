@@ -33,7 +33,7 @@ const DriverRiding = () => {
         <div className="h-screen relative ">
             {/*bg-amber-400*/}
             <div className="fixed p-6 top-0 w-screen flex items-center justify-between">
-            <img className='w-16 absolute left-5 top-5' src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Uber_logo_2018.png" alt="" />
+            <img className='w-25 absolute left-5 top-5' src="/Logo.png" alt="" />
                 <Link to='/driver-home' className="fixed h-10 w-10 bg-white rounded-full flex items-center justify-center top-2 right-2">
                     <i className=" text-2xl font-semibold ri-home-4-line"/>
                 </Link>

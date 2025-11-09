@@ -250,6 +250,7 @@ const Home = () => {
                             {/* <div className="line absolute h-16 w-1 top-[47%] left-10 bg-gray-900 rounded-full "></div> */}
 
                             <input
+                            required
                             onClick={()=>{
                                 setPanelOpen(true)
                                 setActiveField('pickup')
@@ -262,6 +263,7 @@ const Home = () => {
                             className={`bg-[#eee] px-8 py-2 text-lg rounded-lg w-full mt-5 ${pickupError ?'border-2 border-red-600' : 'border border-gray-300'}`}
                             type="text" placeholder="Pick-Up Location"/>
                             <input
+                            required
                             onClick={()=>{
                                 setPanelOpen(true)
                                 setActiveField('destination')

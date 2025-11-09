@@ -69,6 +69,7 @@ module.exports.getAutoCompleteSuggestions = async (input) => {
             return response.data.predictions.map(prediction => prediction.description).filter(value => value);
         } else {
             throw new Error('Unable to fetch suggestions');
+            
         }
     } catch (err) {
         console.error(err);

@@ -1,3 +1,11 @@
 Backend/.env
 Frontend/.env
 node_modules
+Backend/report
+Backend/dist
+Frontend/dist
+report
+report2
+report_final
+scripts
+Frontend/report.txt
