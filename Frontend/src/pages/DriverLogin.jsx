@@ -6,11 +6,11 @@ import { DriverDataContext } from "../context/DriverContext"
 const DriverLogin = () => {  
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    // const [driverData, setDriverData] = useState({})
     const { driver, setDriver } = React.useContext(DriverDataContext)
+    const [check, setCheck] = useState(true)
+    const [error, setError] = useState('')
 
     const navigate = useNavigate()
-
     const submitHandler = async (e) => {
         e.preventDefault();
         const driver={
@@ -18,17 +18,26 @@ const DriverLogin = () => {
             password
 
         }
-        const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/drivers/login`, driver)
-        if(response.status==200){
-            const data = response.data
-
-            setDriver(data.captain)
-            localStorage.setItem('driver-token', data.token)
-            navigate('/driver-home')
+        try {
+            const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/drivers/login`, driver)
+            if(response.status === 200){
+                const data = response.data
+                setDriver(data.captain)
+                localStorage.setItem('driver-token', data.token)
+                setCheck(true)
+                setError('')
+                navigate('/driver-home')
+            } else {
+                setCheck(false)
+                setError('Invalid email or password')
+            }
+        } catch (err) {
+            setCheck(false)
+            setError(err?.response?.data?.message || 'Invalid email or password')
+        } finally {
+            setEmail('')
+            setPassword('')
         }
-        // console.log(driverData)
-        setEmail('')
-        setPassword('')
     }  
     return (
         <div className="p-7 h-screen flex flex-col justify-between">
@@ -59,6 +68,9 @@ const DriverLogin = () => {
                     />
                     <button className="bg-[#111] text-white font-semibold mb-2 rounded px-4 py-2 w-full text-lg placeholder:text-base">Log In</button>
                 </form >
+                <div className='bg-white-900 text-red-600 p-2 rounded mt-2'>
+                    {!check && <p>{error || 'Invalid email or password'}</p>}
+                </div>
                 <p className="text-center"> Ready to take control of your journey? <br/>  <Link to='/driver-signup' className="text-blue-700"> Sign up as a Driver today! </Link></p>
             </div>
             <div>

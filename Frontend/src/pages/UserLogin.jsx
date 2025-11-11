@@ -8,10 +8,31 @@ import { UserDataContext } from "../context/UserContext"
 const UserLogin = () => {   
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [check, setCheck] = useState(true)
     // const [userData, setUserData] = useState({})
 
     const { user, setUser } = useContext(UserDataContext)
     const navigate = useNavigate()
+
+    // const submitHandler = async(e) => {
+    //     e.preventDefault();
+    //     const userData = {
+    //         email: email,
+    //         password: password
+    //     }
+    //     // console.log(userData)
+    //     const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/login`, userData)
+    //     if(response.status === 200){
+    //         const data = response.data
+    //         setUser(data.user)
+    //         localStorage.setItem('token', data.token)
+    //         // console.log("LOGIN")
+    //         navigate('/home')
+    //     }
+        
+    //     setEmail('')
+    //     setPassword('')
+    // }
 
     const submitHandler = async(e) => {
         e.preventDefault();
@@ -19,19 +40,23 @@ const UserLogin = () => {
             email: email,
             password: password
         }
-        // console.log(userData)
-        const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/login`, userData)
-        if(response.status === 200){
+        try {
+            const response = await axios.post(`${import.meta.env.VITE_BASE_URL}/users/login`, userData)
             const data = response.data
             setUser(data.user)
             localStorage.setItem('token', data.token)
-            // console.log("LOGIN")
             navigate('/home')
+            setCheck(true)
+        } catch (error) {
+            setCheck(false)
+            console.error('Login error:', error)
+        } finally {
+            setEmail('')
+            setPassword('')
         }
-        
-        setEmail('')
-        setPassword('')
     }
+
+
     return (
         <div className="p-7 h-screen flex flex-col justify-between">
             <div>
@@ -61,6 +86,9 @@ const UserLogin = () => {
                     />
                     <button className="bg-[#111] text-white font-semibold mb-2 rounded px-4 py-2 w-full text-lg placeholder:text-base">Log In</button>
                 </form >
+                <div className='bg-white-900 text-red-600 p-2 rounded mt-2'>
+                    {!check && <p>Invalid email or password</p>}
+                </div> 
                 <p className="text-center"> New here? <Link to='/signup' className="text-blue-700">Create new Account </Link></p>
             </div>
             <div>
